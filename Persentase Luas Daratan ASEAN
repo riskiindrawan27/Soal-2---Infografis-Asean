@@ -1,0 +1,20 @@
+import numpy as np 
+import pandas as pd
+import matplotlib.pyplot as plt 
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'system123',
+    passwd = 'system123',
+    database = 'world'
+)
+
+df = pd.read_sql('select * from country where Name IN("Brunei","Cambodia","East Timor","Indonesia","Laos","Malaysia","Myanmar","Philippines","Singapore","Thailand","Vietnam") ', con = mydb)
+x = df['Name']
+y = df['SurfaceArea']
+
+plt.title('Persentase Luas Daratan ASEAN')
+plt.pie(y, labels=x, autopct='%1.1f%%')
+
+plt.show()
