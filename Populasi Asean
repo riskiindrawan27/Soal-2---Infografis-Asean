@@ -14,10 +14,14 @@ df = pd.read_sql('select * from country where Name IN("Brunei","Cambodia","East 
 x = df['Name']
 y = df['Population']
 
+plt.figure('Bar Chart - Populasi Negara Asean', figsize = (12,8))
 plt.bar(x, y, color=['r','g','b','r','r','g','b','r','r','g','b'])
 
 plt.title('Populasi Negara ASEAN')
 plt.xlabel('Negara')
 plt.ylabel('Populasi(x100jt jiwa)')
 plt.legend()
+for j in range(len(x)):
+    plt.text(x[j],y[j]+1000,y[j])
+
 plt.show()
