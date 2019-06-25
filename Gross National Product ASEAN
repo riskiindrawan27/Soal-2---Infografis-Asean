@@ -16,10 +16,11 @@ x = df['Name']
 y = df['GNP']
 
 
-
+plt.figure(figsize=(15,6))
 plt.bar(x, y, color=['r','g','b','r','r','g','b','r','r','g','b'])
 plt.title('Pendapatan Bruto Nasional ASEAN')
 plt.xlabel('Negara')
 plt.ylabel('Gross National Product(US$)')
-plt.legend()
+for i in range(len(x)):
+    plt.text(x[i],y[i],y[i])
 plt.show()
